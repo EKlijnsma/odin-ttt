@@ -1,0 +1,40 @@
+Build a tic-tac-toe game on the command line where two human players 
+can play against each other and the board is displayed in between turns.
+
+Think about how you would set up the different elements within the game… 
+What should be a class? 
+Instance variable? 
+Method? 
+A few minutes of thought can save you from wasting an hour of coding.
+Build your game, taking care to not share information between classes any more than you have to.
+Post your solution below, then check out this example solution from RosettaCode.org.
+
+Player class
+    A player has a name/symbol and a player can make moves
+    Maybe a player also has a total score tally and can win/lose 
+
+Board class
+    A board has cells (3x3)
+    A board has a state (the current configuration)
+    A board can take moves (and update its state)
+
+Game class
+    A game has a board
+    A game has 2 players
+    A game has a state (running, game-over)
+    A game can announce who is next
+    A game can render its board
+    A game can process a move (and update its state accordingly)
+
+Game logic:
+    Start game
+    Pick random player
+    LOOP
+        Render board
+        Get move
+        Process move
+        If gameover (game won or no more moves)
+            break
+        else 
+            switch players
+    Announce result
