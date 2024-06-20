@@ -16,4 +16,8 @@ class Player
 
     end
   end
+
+  def to_s
+    "Player #{symbol}"
+  end
 end
