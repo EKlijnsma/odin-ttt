@@ -20,21 +20,21 @@ class Board
 
   def winner?
     # check rows
-    for row in self.state
+    state.each do |row|
       return true if row.uniq.length == 1
     end
     # check columns
-    for col in (0..2)
-      return true if [self.state[0][col], self.state[1][col], self.state[2][col]].uniq.length == 1
+    (0..2).each do |col|
+      return true if [state[0][col], state[1][col], state[2][col]].uniq.length == 1
     end
     # check diagonals
-    if [self.state[0][0], self.state[1][1],
-        self.state[2][2]].uniq.length == 1 || [self.state[0][2], self.state[1][1], self.state[2][0]].uniq.length == 1
+    if [state[0][0], state[1][1],
+        state[2][2]].uniq.length == 1 || [state[0][2], state[1][1], state[2][0]].uniq.length == 1
       return true
     end
-    return false
-  end
 
+    false
+  end
 
   def to_s
     print '-' * 15
