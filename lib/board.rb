@@ -16,6 +16,7 @@ class Board
     row = (move - 1) / 3
     col = (move - 1) % 3
     state[row][col] = player_symbol
+    self
   end
 
   def winner?
