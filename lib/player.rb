@@ -2,6 +2,8 @@
 
 # A Player has a symbol (X or O) and can make a move
 class Player
+  attr_reader :symbol
+
   def initialize(symbol)
     @symbol = symbol
   end
