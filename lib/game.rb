@@ -21,12 +21,29 @@ class Game
     board.state.flatten.select { |cell| cell >= 1 && cell <= 9 }
   end
 
+  def switch_players(player)
+    if player == player1
+        player2
+    else
+        player1
+    end
+  end
+
   def play
     current_player = self.starting_player
     while true
         puts self.board
         next_move = current_player.make_move(self.options)
         self.board = board.process_move(next_move, current_player.symbol)
-        
-
+        if board.winner?
+            puts "Congratulations #{current_player}, you won!"
+            break
+        elsif self.options.length == 0
+            puts "Game over, its a tie!"
+            break
+        else
+            self.switch_players(current_player)
+        end
+    end
+  end
 end
