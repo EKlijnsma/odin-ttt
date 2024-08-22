@@ -5,7 +5,44 @@ require_relative '../lib/board'
 describe Board do
   subject(:board) { described_class.new }
   describe '#process_move' do
-
+    context 'when player X makes a move' do
+      let(:player) { 'X' }
+      it 'processes a row 1 move' do
+        expect(board.state[0]).not_to include(player)
+        board.process_move(2, player)
+        expect(board.state[0]).to include(player)
+      end
+      it 'processes a row 2 move' do
+        expect(board.state[1]).not_to include(player)
+        board.process_move(5, player)
+        expect(board.state[1]).to include(player)
+      end
+      it 'processes a row 3 move' do
+        expect(board.state[2]).not_to include(player)
+        board.process_move(8, player)
+        expect(board.state[2]).to include(player)
+      end
+    end
+    
+    context 'when player O makes a move' do
+      let(:player) { 'O' }
+      it 'processes a row 1 move' do
+        expect(board.state[0]).not_to include(player)
+        board.process_move(2, player)
+        expect(board.state[0]).to include(player)
+      end
+      it 'processes a row 2 move' do
+        expect(board.state[1]).not_to include(player)
+        board.process_move(5, player)
+        expect(board.state[1]).to include(player)
+      end
+      it 'processes a row 3 move' do
+        expect(board.state[2]).not_to include(player)
+        board.process_move(8, player)
+        expect(board.state[2]).to include(player)
+      end
+    end
+    
   end
   
   describe '#winner?' do
